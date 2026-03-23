@@ -6,7 +6,7 @@
   "author": "harurow",
   "repository": {
     "type": "git",
-    "url": "https://github.com/harurow/j-quants-doc-mcp.git"
+    "url": "git+https://github.com/harurow/j-quants-doc-mcp.git"
   },
   "keywords": [
     "mcp",
