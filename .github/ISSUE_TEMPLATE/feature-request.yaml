@@ -1,5 +1,5 @@
 name: 🚀 Feature request/機能追加リクエスト
-description: As a user, I would like to see this new feature implemented into the SDK
+description: As a user, I would like to see this new feature implemented
 labels: [ feature ]
 assignees:
   -
@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to request a feature for jquants-api-client-python! Please fill the form in English/日本語!
+        Thanks for taking the time to request a feature for @harurow/j-quants-doc-mcp! Please fill the form in English/日本語!
   - type: checkboxes
     attributes:
       label: Is there an existing issue for this?
@@ -18,7 +18,7 @@ body:
   - type: textarea
     attributes:
       label: Is your feature request related to a problem? Please describe.
-      description: A concise description of the problem you are facing or the motivetion behind this feature request.
+      description: A concise description of the problem you are facing or the motivation behind this feature request.
       placeholder: |
         I faced a problem due to which ...
     validations:
@@ -32,7 +32,7 @@ body:
   - type: textarea
     attributes:
       label: Describe an alternate solution.
-      description: Is there any other app issue to solve the problem?
+      description: Is there any other way to solve the problem?
     validations:
       required: false
   - type: textarea

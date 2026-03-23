@@ -1,51 +1,44 @@
-# j-quants-doc-mcp
+# @harurow/j-quants-doc-mcp
 
-J-Quants APIのドキュメントを提供するMCPサーバー。Claude DesktopなどのMCPクライアントから、J-Quants APIのエンドポイント検索、詳細情報の取得、実行可能なサンプルコード生成、FAQ回答などの機能を利用できます。
+J-Quants APIのドキュメントを提供するMCPサーバー。Claude DesktopなどのMCPクライアントから、J-Quants APIのエンドポイント検索、詳細情報の取得、実装パターンの参照、FAQ回答などの機能を利用できます。
 
-## インストール
+> **Note**
+> 本プロジェクトは [J-Quants/j-quants-doc-mcp](https://github.com/J-Quants/j-quants-doc-mcp)（(株)JPX総研による公式リポジトリ）を fork し、Python 実装を Node.js (TypeScript) に書き換えたものです。
+> 元プロジェクトは MIT License で公開されており、本リポジトリもそのライセンスを継承しています。
 
-### 必須要件
+## 必須要件
 
-- Python 3.10以上
-- [uv](https://github.com/astral-sh/uv) (推奨) または pip
-
-### uv toolを使用する場合(推奨)
-
-```bash
-# GitHubから直接インストール
-uv tool install git+https://github.com/J-Quants/j-quants-doc-mcp.git
-
-# またはローカルから
-git clone https://github.com/J-Quants/j-quants-doc-mcp.git
-cd j-quants-doc-mcp
-uv tool install .
-```
-
-### pipを使用する場合
-
-```bash
-# GitHubから直接インストール
-pip install git+https://github.com/J-Quants/j-quants-doc-mcp.git
-
-# またはローカルから
-git clone https://github.com/J-Quants/j-quants-doc-mcp.git
-cd j-quants-doc-mcp
-pip install .
-```
+- Node.js 18以上
 
 ## 起動方法
 
-### スタンドアロンで起動
+### npxで起動（推奨・インストール不要）
 
 ```bash
-# uv toolでインストールした場合
-uvx j-quants-doc-mcp
+npx @harurow/j-quants-doc-mcp
+```
 
-# pipでインストールした場合
+インストールなしでそのまま実行できます。
+
+### グローバルインストールして起動
+
+```bash
+npm install -g @harurow/j-quants-doc-mcp
+
 j-quants-doc-mcp
 ```
 
-### Claude Desktopから使用
+### ローカルビルドで起動
+
+```bash
+git clone https://github.com/harurow/j-quants-doc-mcp.git
+cd j-quants-doc-mcp
+npm install
+npm run build
+node dist/index.js
+```
+
+## Claude Desktopから使用
 
 `claude_desktop_config.json`に以下を追加:
 
@@ -53,20 +46,20 @@ j-quants-doc-mcp
 {
   "mcpServers": {
     "j-quants-doc-mcp": {
-      "command": "uvx",
-      "args": ["j-quants-doc-mcp"]
+      "command": "npx",
+      "args": ["-y", "@harurow/j-quants-doc-mcp"]
     }
   }
 }
 ```
 
-pipでインストールした場合は、`j-quants-doc-mcp` コマンドを直接指定します:
+ローカルビルドを使用する場合:
 ```json
 {
   "mcpServers": {
     "j-quants-doc-mcp": {
-      "command": "j-quants-doc-mcp",
-      "args": []
+      "command": "node",
+      "args": ["/path/to/j-quants-doc-mcp/dist/index.js"]
     }
   }
 }
@@ -76,7 +69,7 @@ pipでインストールした場合は、`j-quants-doc-mcp` コマンドを直�
 - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
 - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
 
-### Cursorから使用
+## Cursorから使用
 
 メニューバー「Cursor」→「Preferences」→「Cursor Settings」を開き、\
 左のメニュー「Tools & MCP」を選択し、「New MCP Server」をクリック。\
@@ -86,20 +79,8 @@ pipでインストールした場合は、`j-quants-doc-mcp` コマンドを直�
 {
   "mcpServers": {
     "j-quants-doc-mcp": {
-      "command": "uvx",
-      "args": ["j-quants-doc-mcp"]
-    }
-  }
-}
-```
-
-pipでインストールした場合は、`j-quants-doc-mcp` コマンドを直接指定します:
-```json
-{
-  "mcpServers": {
-    "j-quants-doc-mcp": {
-      "command": "j-quants-doc-mcp",
-      "args": []
+      "command": "npx",
+      "args": ["-y", "@harurow/j-quants-doc-mcp"]
     }
   }
 }
@@ -107,35 +88,21 @@ pipでインストールした場合は、`j-quants-doc-mcp` コマンドを直�
 
 以上の設定で、AIクライアントにてMCPサーバーを利用する準備が完了しました。
 
-## アップデート
-
-既にインストール済みの場合、最新版へのアップデートは以下の方法で行えます。
-
-### uv toolを使用している場合
+## 開発
 
 ```bash
-# GitHubから直接インストールした場合
-uv tool upgrade j-quants-doc-mcp
+# 依存関係のインストール
+npm install
 
-# ローカルクローンからインストールした場合
-cd j-quants-doc-mcp
-git pull
-uv tool upgrade j-quants-doc-mcp
+# ビルド
+npm run build
+
+# 開発用（tsx で直接実行）
+npm run dev
+
+# テスト
+npm test
 ```
-
-### pipを使用している場合
-
-```bash
-# GitHubから直接インストールした場合
-pip install --upgrade git+https://github.com/J-Quants/j-quants-doc-mcp.git
-
-# ローカルクローンからインストールした場合
-cd j-quants-doc-mcp
-git pull
-pip install --upgrade .
-```
-
-アップデート後、Claude DesktopやCursorを再起動することで新しいバージョンが反映されます。
 
 ## トラブルシューティング
 
@@ -143,13 +110,19 @@ pip install --upgrade .
 
 1. 設定ファイルのJSONが正しいか確認
 2. Claude Desktopを再起動
-3. MCPサーバーのログを確認
+3. `npx @harurow/j-quants-doc-mcp` をターミナルで直接実行してエラーがないか確認
 
-### 生成されたコードが実行できない
+### 環境変数
 
-1. 必要な依存関係をインストール: `pip install httpx python-dotenv`
-2. 環境変数が設定されているか確認
+- `JQUANTS_BASE_URL`: APIドキュメントの取得元URLを上書きする場合に使用
 
+## クレジット
+
+本プロジェクトは以下のリポジトリを fork して作成されています:
+
+- **元リポジトリ**: [J-Quants/j-quants-doc-mcp](https://github.com/J-Quants/j-quants-doc-mcp)
+- **著作権者**: JPX Market Innovation & Research, Inc.
+- **ライセンス**: MIT License
 
 ## 関連リンク
 

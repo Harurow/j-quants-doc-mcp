@@ -1,2 +1,0 @@
-# patterns配下はサンプルコードを配置するため、厳格なlintは実施しない。
-exclude = ["src/j_quants_doc_mcp/templates/patterns"]

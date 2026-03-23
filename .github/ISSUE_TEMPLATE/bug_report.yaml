@@ -1,5 +1,5 @@
 name: 🐞 Bug report/バグ報告
-description: Create a bug report to help us improve the SDK
+description: Create a bug report to help us improve
 title: "[Bug]: "
 labels: [ bug ]
 assignees:
@@ -36,12 +36,13 @@ body:
 
   - type: textarea
     attributes:
-      label: SDK Version I encountered this issue in
+      label: Version
       description: |
-        What versions of the SDK have you tried in which the issue is present.
-        Before opening an issue please make sure you try the latest version of the SDK in case a fix has already been made.
+        What version of the MCP server are you using?
+        Before opening an issue please make sure you try the latest version in case a fix has already been made.
       placeholder: |
-        jquants-api-client version: 0.x.x
+        @harurow/j-quants-doc-mcp version: 1.0.0
+        Node.js version: 22.x
     validations:
       required: true
 

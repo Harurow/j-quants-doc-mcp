@@ -9,7 +9,10 @@
         "APIキーは環境変数や安全なストレージに保存すること",
         "APIキーはx-api-keyヘッダーで送信"
       ],
-      "sample_code_path": "patterns/auth_flow.py"
+      "sample_code_path": {
+        "python": "patterns/auth_flow.py",
+        "typescript": "patterns/auth_flow.ts"
+      }
     },
     {
       "pattern_name": "ページネーション対応",
@@ -25,7 +28,10 @@
         "ループ処理で全データを取得する実装が推奨される",
         "各リクエスト間に適切な待機時間を設けること(レート制限対策)"
       ],
-      "sample_code_path": "patterns/pagination.py"
+      "sample_code_path": {
+        "python": "patterns/pagination.py",
+        "typescript": "patterns/pagination.ts"
+      }
     },
     {
       "pattern_name": "レート制限対応",
@@ -41,7 +47,10 @@
         "指数バックオフ戦略の実装を推奨",
         "大量データ取得時はバッチ処理を検討"
       ],
-      "sample_code_path": "patterns/rate_limit.py"
+      "sample_code_path": {
+        "python": "patterns/rate_limit.py",
+        "typescript": "patterns/rate_limit.ts"
+      }
     },
     {
       "pattern_name": "財務情報の取得と分析",
@@ -57,7 +66,10 @@
         "時系列データの取得にはページネーション対応が必要",
         "上場銘柄情報と組み合わせて業種別分析が可能"
       ],
-      "sample_code_path": "patterns/financial_analysis.py"
+      "sample_code_path": {
+        "python": "patterns/financial_analysis.py",
+        "typescript": "patterns/financial_analysis.ts"
+      }
     },
     {
       "pattern_name": "データ一括取得（Bulk API）",
@@ -78,7 +90,10 @@
         "取得したURLの有効期限は約5分のため、すぐにダウンロードする",
         "大量ダウンロード時はストレージ容量に注意"
       ],
-      "sample_code_path": "patterns/bulk_download.py"
+      "sample_code_path": {
+        "python": "patterns/bulk_download.py",
+        "typescript": "patterns/bulk_download.ts"
+      }
     }
   ]
 }
